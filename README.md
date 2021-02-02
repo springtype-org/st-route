@@ -24,7 +24,7 @@ This is how using `st-route` looks like:
 ```tsx
 import { tsx, render, Ref } from 'springtype';
 import { $ } from 'st-query';
-import { route, RouterRequest } from '../../../dist';
+import { route, RouterRequest } from 'st-route';
 
 const HomePage = () => (
   <div>
