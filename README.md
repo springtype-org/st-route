@@ -11,7 +11,7 @@ This is an exremely tiny, yet powerful library for HTML5 history API based DOM r
 <h2 align="center">Features</h2>
 
 - ✅ Abstracts the HTML5 history API
-- ✅ Tiny: `391 bytes` (best, brotli) - `556 bytes` (worst, umd, gz)
+- ✅ Tiny: `374 bytes` (best, brotli) - `535 bytes` (worst, umd, gz)
 - ✅ Zero dependencies
 - ✅ First class TypeScript support
 - ✅ 100% Unit Test coverage
@@ -24,7 +24,9 @@ This is how using `st-route` looks like:
 ```tsx
 import { tsx, render, Ref } from 'springtype';
 import { $ } from 'st-query';
-import { route, RouterRequest } from 'st-route';
+import { route, RouteRequest } from 'st-route';
+
+const nav = route();
 
 const HomePage = () => (
   <div>
@@ -35,7 +37,7 @@ const HomePage = () => (
 );
 const BlogPage = () => <div>BlogPage</div>;
 
-const BlogArticlePage = ({ request }: { request: RouterRequest }) => (
+const BlogArticlePage = ({ request }: { request: RouteRequest }) => (
   <div>
     Blog / show article:
     {request.params.slug}
@@ -44,7 +46,6 @@ const BlogArticlePage = ({ request }: { request: RouterRequest }) => (
 
 const RouteList = () => {
   const containerRef: Ref = {};
-  const nav = route();
 
   nav.get('/', () => {
     containerRef.current = $(containerRef.current).replaceWith(<HomePage />);
@@ -54,13 +55,16 @@ const RouteList = () => {
     containerRef.current = $(containerRef.current).replaceWith(<BlogPage />);
   });
 
-  nav.get('/blog/article/:slug', (request: Request) => {
+  nav.get('/blog/article/:slug', (request: RouteRequest) => {
     containerRef.current = $(containerRef.current).replaceWith(<BlogArticlePage request={request} />);
   });
 
   return <div ref={containerRef}>Loading...</div>;
 };
-render(<RouteList />, document.body);
+render(<RouteList />);
+
+// initial match after initial render
+nav.match();
 ```
 
 <h2 align="center">API</h2>
@@ -70,7 +74,7 @@ The following contract is made between the webapp and `st-router`:
 ```typescript
 export interface API {
   get(path: string, handler: RouteHandler): API;
-  match(path: string): RouteRequest | false;
+  match(path?: string): RouteRequest | false;
   getRouteRegistrations(): Array<RouteRegistration>;
   tokenizePath(path: string): TokenizedPath;
 }

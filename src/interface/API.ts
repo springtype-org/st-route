@@ -5,7 +5,7 @@ import { TokenizedPath } from './TokenizedPath';
 
 export interface API {
   get(path: string, handler: RouteHandler): API;
-  match(path: string): RouteRequest | false;
+  match(path?: string): RouteRequest | false;
   getRouteRegistrations(): Array<RouteRegistration>;
   tokenizePath(path: string): TokenizedPath;
 }

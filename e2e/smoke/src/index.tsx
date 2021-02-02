@@ -1,6 +1,8 @@
 import { tsx, render, Ref } from 'springtype';
 import { $ } from 'st-query';
-import { route, RouterRequest } from '../../../dist';
+import { route, RouteRequest } from '../../../dist';
+
+const nav = route();
 
 const HomePage = () => (
   <div>
@@ -11,7 +13,7 @@ const HomePage = () => (
 );
 const BlogPage = () => <div>BlogPage</div>;
 
-const BlogArticlePage = ({ request }: { request: RouterRequest }) => (
+const BlogArticlePage = ({ request }: { request: RouteRequest }) => (
   <div>
     Blog / show article:
     {request.params.slug}
@@ -20,7 +22,6 @@ const BlogArticlePage = ({ request }: { request: RouterRequest }) => (
 
 const RouteList = () => {
   const containerRef: Ref = {};
-  const nav = route();
 
   nav.get('/', () => {
     containerRef.current = $(containerRef.current).replaceWith(<HomePage />);
@@ -30,10 +31,13 @@ const RouteList = () => {
     containerRef.current = $(containerRef.current).replaceWith(<BlogPage />);
   });
 
-  nav.get('/blog/article/:slug', (request: Request) => {
+  nav.get('/blog/article/:slug', (request: RouteRequest) => {
     containerRef.current = $(containerRef.current).replaceWith(<BlogArticlePage request={request} />);
   });
 
   return <div ref={containerRef}>Loading...</div>;
 };
-render(<RouteList />, document.body);
+render(<RouteList />);
+
+// initial match after initial render
+nav.match();

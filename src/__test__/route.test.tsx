@@ -64,4 +64,16 @@ describe('route', () => {
 
     expect(match).toEqual(false);
   });
+
+  it('does match with no path name provided', () => {
+    const nav = route();
+    const path = '/';
+    const handler = () => {};
+
+    nav.get(path, handler);
+
+    const match = nav.match();
+
+    expect(!!match).toEqual(true);
+  });
 });

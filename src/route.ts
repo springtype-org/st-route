@@ -16,33 +16,17 @@ export const route = (domImpl: Window = window): API => {
       });
       return api;
     },
-    match: (path: string) => matchRouteRegistrations(routeRegistrations, path),
+    match: (path?: string) => matchRouteRegistrations(routeRegistrations, path || document.location.pathname),
     getRouteRegistrations: () => routeRegistrations,
   };
 
   const listenForRouteChanges = () => {
-    let notYetInitiallyTriggered = false;
-
     // tested by TestCafé end-2-end smoke test
     /* istanbul ignore next */
     domImpl.addEventListener(
       'popstate',
       () => {
         matchRouteRegistrations(routeRegistrations, document.location.pathname);
-      },
-      false,
-    );
-
-    // initial routing on DOM load
-    // tested by TestCafé end-2-end smoke test
-    /* istanbul ignore next */
-    domImpl.addEventListener(
-      'load',
-      () => {
-        if (!notYetInitiallyTriggered) {
-          matchRouteRegistrations(routeRegistrations, document.location.pathname);
-          notYetInitiallyTriggered = true;
-        }
       },
       false,
     );

@@ -1,10 +1,10 @@
 {
     "name": "st-route",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publishConfig": {
         "access": "public"
     },
-    "source": "src/route.ts",
+    "source": "src/index.ts",
     "main": "dist/index.js",
     "exports": "dist/index.modern.js",
     "module": "dist/index.module.js",
