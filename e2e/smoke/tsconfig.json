@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "tsx",
+    "outDir": "dist",
+    "declaration": true
+  },
+  "include": [
+    "src",
+    "__e2e__"
+  ]
+}
