@@ -6886,10 +6886,10 @@ split@0.3:
   dependencies:
     through "2"
 
-springtype@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/springtype/-/springtype-3.1.2.tgz#cc3b6fb2d72d7828646d801e445f4c5979beca97"
-  integrity sha512-IfnCIDifl2jDW1pus36NvUWA8wUVSDOHP5yZPH/vVjw+GIZ/iJQUnlk/fHjT6FXG9fawg21CUj3qNzYqMlnfRg==
+springtype@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/springtype/-/springtype-3.2.1.tgz#0e90d59b9039ceb2ac5876a31ad5593033ff76bc"
+  integrity sha512-hgMizEimVQ1J5K59qSLqSYekcNDEpafFrJ5dPHTCMTmUF8p7m33isJQ6VFlhrZEaHsNTk1vZRhZXKRMCDrCDMA==
 
 sprintf-js@~1.0.2:
   version "1.0.3"
@@ -6916,10 +6916,10 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
-st-query@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/st-query/-/st-query-1.0.1.tgz#aba77714100a9d01a4ebdd655093a4bceef25616"
-  integrity sha512-SddBrdumvoEQcmsog4KQNMqe1qtbsfl7GjuBEdg68VtRi0kOszYnZg90DhFOn4k2AzAVy1cLdo6Dt6lyErbr1g==
+st-query@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/st-query/-/st-query-1.0.2.tgz#8a9f4bc6f754752fc727b652d0581b4d2db53b24"
+  integrity sha512-F+4/I6yLE4UTXrCz0NwWrKayKpswqJibAy4/UCaFs2oBUWXoF0+QmmzArwH/y6wRfu1x+TnbbQzHQJH6xj9U0g==
 
 stable@^0.1.8:
   version "0.1.8"

@@ -37,8 +37,7 @@
         "test:watch": "jest --verbose --watch --coverage",
         "test:ci": "jest --verbose --runInBand",
         "prerelease": "yarn build",
-        "release": "cd dist",
-        "postrelease": "yarn publish",
+        "release": "cd dist && yarn publish",
         "format:fix": "pretty-quick --verbose --pattern 'src/**/*.ts{,x}'",
         "format:fix:staged": "yarn format:fix --staged",
         "format:check": "pretty-quick --check --verbose --pattern 'src/**/*.ts{,x}'",
@@ -50,7 +49,7 @@
     "husky": {
         "hooks": {
             "pre-commit": "yarn format:fix:staged && yarn lint:check",
-            "pre-push": "yarn audit --level MODERATE && yarn test",
+            "pre-push": "yarn audit --level MODERATE && yarn test && yarn e2e",
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
     },
@@ -76,7 +75,7 @@
         "microbundle": "^0.13.0",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0",
-        "springtype": "^3.1.2",
+        "springtype": "^3.2.1",
         "ts-jest": "^26.5.0",
         "ts-node": "^9.1.1",
         "typescript": "^4.1.3"

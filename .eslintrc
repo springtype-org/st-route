@@ -20,8 +20,11 @@
         "no-cond-assign": "off",
         "no-plusplus": "off",
         "no-continue": "off",
+        "no-multi-assign": "off",
         "no-param-reassign": "off",
         "import/prefer-default-export": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "react/no-unknown-property": "off",
+        "@typescript-eslint/indent": "off"
     }
 }
