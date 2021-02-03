@@ -48,15 +48,15 @@ const RouteList = () => {
   const containerRef: Ref = {};
 
   nav.get('/', () => {
-    containerRef.current = $(containerRef.current).replaceWith(<HomePage />);
+    $(containerRef.current).html(<HomePage />);
   });
 
   nav.get('/blog', () => {
-    containerRef.current = $(containerRef.current).replaceWith(<BlogPage />);
+    $(containerRef.current).html(<BlogPage />);
   });
 
   nav.get('/blog/article/:slug', (request: RouteRequest) => {
-    containerRef.current = $(containerRef.current).replaceWith(<BlogArticlePage request={request} />);
+    $(containerRef.current).html(<BlogArticlePage request={request} />);
   });
 
   return <div ref={containerRef}>Loading...</div>;
